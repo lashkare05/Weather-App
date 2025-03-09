@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forcast</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body class="">
+    <div class="p-0 m-0 box-border flex flex-col">
+        
+        
+        <div class="p-1 m-0.5">
+            <h3>Weather Forcast</h3>
+        </div>
+
+        <!-- section-1  -->
+        <div id="section-1" class="p-1 m-1 bg-gray-200 flex flex-col items-center ">
+            <label for="location" class="-ml-137"> Search Location : </label>
+            <div class="flex ">
+                <!-- Input & Button merged inline -->
+                <input type="text" id="location" name="weather-forcast-location" placeholder="E.g., Enter a City Name or Country Name" class=" border-1 border-gray-300 border-r-0 py-3 px-3 h-10 mt-1 mb-2  w-xl rounded-l-md">
+                <button class=" bg-blue-500 py-1 m-1 w-24 h-10 rounded-r-md cursor-pointer "><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <div class="w-35 h-[0.5px] bg-gray-400"></div>
+                <span class="text-gray-600 tracking-widest">Or</span>
+                <div class="w-35 h-[0.5px] bg-gray-400"></div>
+            </div>
+            <button class=" bg-blue-500 p-1 m-1 w-full max-w-80 h-9 rounded-md cursor-pointer ">Current Location</button>
+        </div>
+
+
+        <div id="weatherDetails" class="mt-80 p-2 bg-gray-200 w-2xl ">
+            <div><span id="currentTem" class="">35</span></div>
+            <div id="city-time">
+              <div><span id="place-name" class="">London</span></div>
+                <small><span id="time">16:41</span> - <span id="date">Monday july 9</span></small>
+            </div>
+        
+            <div id="weatherIcon" class="inline">
+                <img src="/Tailwindcss-starter/Icons/cloudy.png" class="icon" alt="icon" width="50" height="50" />
+                <span id="weatherCondition">Cloudy</span>
+            </div>
+        </div>
+
+        <div id="5d-forcast">
+           
+        </div>
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    </div> 
+</body>
+</html>
