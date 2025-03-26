@@ -7,58 +7,194 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="./style.css" rel="stylesheet">
 </head>
-<body class="">
-    <div class="p-0 m-0 box-border flex flex-col">
-        
-        
-        <div class="p-1 m-0.5">
-            <h3>Weather Forcast</h3>
-        </div>
-
-        <!-- section-1  -->
-        <div id="section-1" class="p-1 m-1 bg-gray-200 flex flex-col items-center ">
-            <label for="location" class="-ml-137"> Search Location : </label>
-            <div class="flex ">
-                <!-- Input & Button merged inline -->
-                <input type="text" id="location" name="weather-forcast-location" placeholder="E.g., Enter a City Name or Country Name" class=" border-1 border-gray-300 border-r-0 py-3 px-3 h-10 mt-1 mb-2  w-xl rounded-l-md">
-                <button class=" bg-blue-500 py-1 m-1 w-24 h-10 rounded-r-md cursor-pointer "><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+<body class="bg-black text-gray-50 box-border m-0 p-0 "> 
+   <div id="weather-app" class="p-0 m-0 box-border flex flex-col min-h-screen bg-[url('./Images/Day/clear.jpg')] bg-no-repeat bg-cover bg-center relative transition duration-500 opacity-100 overflow-auto ">
+        <header><h3 id="heading" class="p-2 mx-2 ">Weather Forecast</h3></header>
+        <!-- <img src="./Images/Day/clear.jpg" alt=""> -->
+        <section id="box1">
+            <!-- for serach -->
+            <div id="section-1" class="p-1 m-1 flex flex-col items-center lg:relative lg:-top-4 lg:-left-20 ">
+                <!-- Label positioned on top, aligned left relative to the input -->
+                <label for="location" class="py-2 px-3 w-full md:w-[500px] lg:w-[700px] text-left"> Search Location : </label>
+                  <!-- Input & Button container merged  -->
+                <div class="flex w-full max-w-2xl">
+                  
+                    <input type="text" id="location" name="weather-forecast-location"
+                        placeholder="E.g., Enter a City Name or Country Name"
+                        class="border border-blue-500  py-2 px-3 h-10 w-full md:w-[500px] lg:w-[700px] rounded-l-md focus:outline-none" />
+                    
+                    <button id="btn" class="border border-blue-500 bg-blue-500 h-10 px-6 rounded-r-md cursor-pointer transition duration-300  hover:bg-blue-600 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass mr-1"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+                <!-- code for horizontal line ___or___ -->
+                <div class="flex items-center space-x-2">
+                    <!-- <div class="w-35 h-[0.5px] bg-gray-400"></div> -->
+                    <span class="text-gray-600 tracking-widest">Or</span>
+                    <!-- <div class="w-35 h-[0.5px] bg-gray-400"></div> -->
+                </div>
+                <!-- <button id="currentLocationBtn" class=" bg-blue-500 p-1 m-1 w-full max-w-[80] h-9 rounded-md cursor-pointer  transition duration-300 hover:bg-blue-600 ">Current Location</button>--> 
+                <button id="currentLocationBtn" class="bg-blue-500 p-1 m-1
+                    w-full            
+                    sm:w-auto        
+                    sm:min-w-[130px] 
+                    md:min-w-[150px]  
+                    h-9
+                    rounded-md
+                    cursor-pointer
+                    transition
+                    duration-300
+                    hover:bg-blue-600">Current Location
+                </button>
             </div>
+            <!-- ________________________________________________________________________________________ -->
             
-            <div class="flex items-center space-x-2">
-                <div class="w-35 h-[0.5px] bg-gray-400"></div>
-                <span class="text-gray-600 tracking-widest">Or</span>
-                <div class="w-35 h-[0.5px] bg-gray-400"></div>
-            </div>
-            <button class=" bg-blue-500 p-1 m-1 w-full max-w-80 h-9 rounded-md cursor-pointer ">Current Location</button>
-        </div>
+            <!-- display searched weather details  -->
+            <!-- Weather Details -->
+            <div id="section-2" class=" h-auto order-1 lg:w-1/2 p-2 lg:mt-75">  
+                <div id="weatherDetails" class=" p-2 mx-2  w-full flex flex-col items-center lg:flex-row lg-items-start lg:text-left relative ">
+                    <!-- Left Section (Temperature & City Info) -->
+                    <div>
+                        <div id="wdBox" class="mb-1 ">
+                            <span id="temp" class="font-semibold text-4xl md:text-5xl ">35&#176;</span>
+                        </div> 
+                        <div id="city-time">
+                            <div>
+                                <span id="name" class="text-xl md:text-2xl  font-normal">New York</span>, 
+                                <span id="country" class="text-xl md:text-2xl font-normal">United States of America</span>
+                            </div>
+                            <small class="font-medium">
+                                <span id="time">16:41</span> - <span id="date">Monday July 9</span>
+                            </small>
+                        </div>
+                    </div>
 
+                     <!-- Right Section (Icon & Weather Conditions) -->
+                    <div id="weatherIcon" class="flex flex-col  lg:px-5 lg:pb-5 mt-3 lg:ml-5  ">
+                        <img src="./Icons/cloudy.png" class="icon w-13 h-13 md:w-20 md:h-20" alt="Weather Icon" />
+                        <span id="weatherCondition" class="text-lg md:text-2xl font-medium ">Cloudy</span>
+                        <div class="mt-1">
+                            <small class="inline-block">
+                                <span id="wind" class="ml-0 m-2">Wind - 2.24 m/s</span>, 
+                                <span id="humidity" class="m-1">Humidity - 85%</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>   
+            
 
-        <div id="weatherDetails" class="mt-80 p-2 bg-gray-200 w-2xl ">
-            <div><span id="currentTem" class="">35</span></div>
-            <div id="city-time">
-              <div><span id="place-name" class="">London</span></div>
-                <small><span id="time">16:41</span> - <span id="date">Monday july 9</span></small>
-            </div>
+        </section>
+    
         
-            <div id="weatherIcon" class="inline">
-                <img src="/Tailwindcss-starter/Icons/cloudy.png" class="icon" alt="icon" width="50" height="50" />
-                <span id="weatherCondition">Cloudy</span>
+        <section>
+            <div class="wrapperContainer 
+            lg:fixed lg:right-0 lg:top-0 lg:w-[450px] lg:h-full 
+            bg-white/20 backdrop-blur-sm 
+            md:relative md:mx-auto  md:w-[600px] md:h-[400px] overflow-auto scrollbar-hide "> <!--overflow-auto-->
+                <section>
+                    <!-- <div><h3 id="headingHistory" class="text-lg font-semibold  hidden">Search History:</h3></div> -->
+                    <div id="recentSearchBox" class="w-full h-full p-3">
+                        <label for="recentSearchDropdown" class="py-1 my-1 mb-3">Searched Locations:</label>
+                        <ul id="recentSearchDropdown" class="text-start p-2 px-6 space-y-1 grid grid-cols-2 grid-rows-3 gap-x-7.5 hidden bg-white/20"></ul>
+                    </div>
+                </section>
+
+
+                <!-- 5-day weather forecast  -->
+                <section>
+                    <label for="5d-forcast" class="py-2 my-2 relative top-5 "> Next 5-days Forecast :</label>
+                    <div id="5d-forcast" class="w-full lg:w-[400px] rounded-md md:h-[250px] lg:h-[500px] m-2 p-4  flex flex-col justify-center md:flex-col md:justify-center relative ">
+                        <div class="grid grid-cols-1 sm:grid-cols-1 gap-x-1 justify-center items-center font-medium text-gray-50">
+                            <!-- Forecast Cards Here -->
+                             <!-- day-1  -->
+                            <div id="forcast-1" class="w-96 h-18 p-1.5 m-1 flex flex-col justify-center items-center relative rounded-lg backdrop-blur-lg shadow-lg bg-white/20 hover:shadow-xl">
+                                <div class="flex justify-center items-center">
+                                    <img id="img-1" src="./Icons/sunny.png" alt="Weather Icon" class="h-10 w-10 p-1 -ml-7 mr-2">
+                                    <div><span id="temp-1" class="font-normal text-2xl ml-2 mr-2 ">35&#176;</span></div>
+                                    <div class="flex flex-col ml-5">
+                                        <span id="condition-1" class="text-base m-1 ml-0">Cloudy</span>
+                                        <small><span id="date-1">Friday Sep 9</span></small> 
+                                    </div>
+                                </div>
+                                <div>
+                                    <small>
+                                        <span id="wind-1" class="mr-1 m-1 p-1">Wind - 2.24 m/s</span>
+                                        <span id="humidity-1" class="m-1 p-1">Humidity - 85%</span>
+                                    </small>
+                                </div>
+                            </div>
+                        <!-- day-2  -->
+                        <div id="forcast-2"  class="w-96 h-18 p-1.5  m-1  flex flex-col justify-center items-center relative rounded-lg backdrop-blur-lg shadow-lg bg-white/20 hover:shadow-xl" >
+                        <div class="flex justify-center items-center">
+                                <img id="img-2" src="./Icons/sunny.png" alt="icon" class="h-10 w-10 p-1 -ml-7 mr-2">
+                                <div><span id="temp-2" class="font-normal text-2xl ml-2 mr-2 ">35&#176;</span></div>
+                                <div class="flex flex-col ml-5">
+                                    <span id="condition-2" class="text-lg m-1 ml-0">Cloudy</span>
+                                    <small><span id="date-2"> Friday Sep 9 </span></small> 
+                                </div>
+                            </div>
+                            <div>
+                                <small><span id="wind-2" class="mr-1 m-1 p-1 ">Wind - 2.24 m/s</span>
+                                <span id="humidity-2" class="m-1 p-1">Humidity - 85%</span> </small>
+                            </div>
+                        </div>
+                        <!-- day-3  -->
+                        <div id="forcast-3"  class="w-96 h-18 p-1.5  m-1  flex flex-col justify-center items-center relative rounded-lg backdrop-blur-lg shadow-lg bg-white/20 hover:shadow-xl" >
+                        <div class="flex justify-center items-center">
+                                <img id="img-3" src="./Icons/sunny.png" alt="icon" class="h-10 w-10 p-1 -ml-7 mr-2">
+                                <div><span id="temp-3" class="font-normal text-2xl ml-2 mr-2 ">35&#176;</span></div>
+                                <div class="flex flex-col ml-5">
+                                    <span id="condition-3" class="text-lg m-1 ml-0">Cloudy</span>
+                                    <small><span id="date-3"> Friday Sep 9 </span></small> 
+                                </div>
+                            </div>
+                            <div>
+                                <small><span id="wind-3" class="mr-1 m-1 p-1 ">Wind - 2.24 m/s</span>
+                                <span id="humidity-3" class="m-1 p-1">Humidity - 85%</span> </small>
+                            </div>
+                        </div>
+                        <!-- day-4  -->
+                        <div id="forcast-4" class="w-96 h-18 p-1.5  m-1  flex flex-col justify-center items-center relative rounded-lg backdrop-blur-lg shadow-lg bg-white/20 hover:shadow-xl" >
+                        <div class="flex justify-center items-center">
+                                <img id="img-4" src="./Icons/sunny.png" alt="icon" class="h-10 w-10 p-1 -ml-7 mr-2 ">  
+                                <div><span id="temp-4" class="font-normal text-2xl ml-2 mr-2 ">35&#176;</span></div>
+                                <div class="flex flex-col ml-5">
+                                    <span id="condition-4" class="text-lg m-1 ml-0">Cloudy</span>
+                                       <small><span id="date-4"> Friday Sep 9 </span></small> 
+                                </div>
+                            </div>
+                            <div>
+                                <small><span id="wind-4" class="mr-1 m-1 p-1 ">Wind - 2.24 m/s</span>
+                                <span id="humidity-4" class="m-1 p-1">Humidity - 85%</span> </small>
+                            </div>
+                        </div>
+                        <!-- day-5  -->
+                        <div id="forcast-5" class="w-96 h-18 p-1.5  m-1  flex flex-col justify-center items-center relative rounded-lg backdrop-blur-lg shadow-lg bg-white/20 hover:shadow-xl" >
+                        <div class="flex justify-center items-center">
+                                <img id="img-5" src="./Icons/sunny.png" alt="icon" class="h-10 w-10 p-1 -ml-7 mr-2">
+                                <div><span id="temp-5" class="font-normal text-2xl ml-2 mr-2 ">35&#176;</span></div>
+                                <div class="flex flex-col ml-5">
+                                    <span id="condition-5" class="text-lg m-1 ml-0">Cloudy</span>
+                                    <small><span id="date-5"> Friday Sep 9 </span></small> 
+                                </div>
+                            </div>
+                            <div>
+                                <small><span id="wind-5" class="mr-1 m-1 p-1 ">Wind - 2.24 m/s</span>
+                                <span id="humidity-5" class="m-1 p-1">Humidity - 85%</span> </small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
-        </div>
-
-        <div id="5d-forcast">
-           
-        </div>
-
+        </section>
+    
+    
         
-    
-    
-    
-    
-    
-    
-    
-    
-    </div> 
+     </div>
+    <script src="updatenext3daysfrom5-2.js " defer></script>
 </body>
 </html>
